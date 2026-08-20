@@ -1,7 +1,7 @@
 const codespaceName =
   import.meta.env.VITE_CODESPACE_NAME?.trim() ||
   (typeof window !== 'undefined' && window.location.hostname.includes('app.github.dev')
-    ? window.location.hostname.replace(/-5173\..*$/, '')
+    ? window.location.hostname.replace(/-\d+\.app\.github\.dev$/, '')
     : '');
 
 export function getApiBaseUrl() {
@@ -15,7 +15,10 @@ export function getApiBaseUrl() {
 export function buildApiUrl(resource) {
   const baseUrl = getApiBaseUrl();
   const normalizedResource = String(resource).replace(/^\/+|\/+$/g, '');
-  return `${baseUrl}/api/${normalizedResource}/`;
+  const apiPath = normalizedResource.startsWith('api/')
+    ? normalizedResource
+    : `api/${normalizedResource}`;
+  return `${baseUrl}/${apiPath}/`;
 }
 
 export const apiConfig = {

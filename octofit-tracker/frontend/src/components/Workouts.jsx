@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { buildApiUrl } from '../lib/api.js';
 
+const workoutsEndpoint = '/api/workouts/';
+
 export default function Workouts() {
   const [workouts, setWorkouts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +13,7 @@ export default function Workouts() {
 
     const loadWorkouts = async () => {
       try {
-        const response = await fetch(buildApiUrl('workouts'), { signal: controller.signal });
+        const response = await fetch(buildApiUrl(workoutsEndpoint), { signal: controller.signal });
         if (!response.ok) {
           throw new Error(`Failed to fetch workouts: ${response.status}`);
         }

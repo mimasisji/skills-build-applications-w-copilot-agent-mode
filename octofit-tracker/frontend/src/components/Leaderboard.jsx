@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { buildApiUrl } from '../lib/api.js';
 
+const leaderboardEndpoint = '/api/leaderboard/';
+
 export default function Leaderboard() {
   const [scores, setScores] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +13,7 @@ export default function Leaderboard() {
 
     const loadLeaderboard = async () => {
       try {
-        const response = await fetch(buildApiUrl('leaderboard'), { signal: controller.signal });
+        const response = await fetch(buildApiUrl(leaderboardEndpoint), { signal: controller.signal });
         if (!response.ok) {
           throw new Error(`Failed to fetch leaderboard: ${response.status}`);
         }

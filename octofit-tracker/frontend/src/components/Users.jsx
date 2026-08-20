@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { buildApiUrl } from '../lib/api.js';
 
+const usersEndpoint = '/api/users/';
+
 export default function Users() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +13,7 @@ export default function Users() {
 
     const loadUsers = async () => {
       try {
-        const response = await fetch(buildApiUrl('users'), { signal: controller.signal });
+        const response = await fetch(buildApiUrl(usersEndpoint), { signal: controller.signal });
         if (!response.ok) {
           throw new Error(`Failed to fetch users: ${response.status}`);
         }

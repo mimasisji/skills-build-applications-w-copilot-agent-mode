@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { buildApiUrl } from '../lib/api.js';
 
+const activitiesEndpoint = '/api/activities/';
+
 export default function Activities() {
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +13,7 @@ export default function Activities() {
 
     const loadActivities = async () => {
       try {
-        const response = await fetch(buildApiUrl('activities'), { signal: controller.signal });
+        const response = await fetch(buildApiUrl(activitiesEndpoint), { signal: controller.signal });
         if (!response.ok) {
           throw new Error(`Failed to fetch activities: ${response.status}`);
         }

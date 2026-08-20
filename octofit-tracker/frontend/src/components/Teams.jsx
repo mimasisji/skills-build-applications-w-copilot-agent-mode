@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { buildApiUrl } from '../lib/api.js';
 
+const teamsEndpoint = '/api/teams/';
+
 export default function Teams() {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +13,7 @@ export default function Teams() {
 
     const loadTeams = async () => {
       try {
-        const response = await fetch(buildApiUrl('teams'), { signal: controller.signal });
+        const response = await fetch(buildApiUrl(teamsEndpoint), { signal: controller.signal });
         if (!response.ok) {
           throw new Error(`Failed to fetch teams: ${response.status}`);
         }
