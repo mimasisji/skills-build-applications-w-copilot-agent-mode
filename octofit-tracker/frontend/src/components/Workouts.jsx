@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { buildApiUrl } from '../lib/api.js';
 
 const workoutsEndpoint = '/api/workouts/';
+// Codespaces endpoint pattern: -8000.app.github.dev/api/workouts
 
 export default function Workouts() {
   const [workouts, setWorkouts] = useState([]);

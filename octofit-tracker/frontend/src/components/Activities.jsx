@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { buildApiUrl } from '../lib/api.js';
 
 const activitiesEndpoint = '/api/activities/';
+// Codespaces endpoint pattern: -8000.app.github.dev/api/activities
 
 export default function Activities() {
   const [activities, setActivities] = useState([]);

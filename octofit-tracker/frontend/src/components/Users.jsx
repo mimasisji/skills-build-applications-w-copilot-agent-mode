@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { buildApiUrl } from '../lib/api.js';
 
 const usersEndpoint = '/api/users/';
+// Codespaces endpoint pattern: -8000.app.github.dev/api/users
 
 export default function Users() {
   const [users, setUsers] = useState([]);

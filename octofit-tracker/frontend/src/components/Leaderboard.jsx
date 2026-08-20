@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { buildApiUrl } from '../lib/api.js';
 
 const leaderboardEndpoint = '/api/leaderboard/';
+// Codespaces endpoint pattern: -8000.app.github.dev/api/leaderboard
 
 export default function Leaderboard() {
   const [scores, setScores] = useState([]);
