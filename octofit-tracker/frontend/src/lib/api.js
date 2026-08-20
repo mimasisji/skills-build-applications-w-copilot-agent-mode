@@ -14,8 +14,8 @@ export function getApiBaseUrl() {
 
 export function buildApiUrl(resource) {
   const baseUrl = getApiBaseUrl();
-  const normalizedResource = String(resource).replace(/^\/+/, '').replace(/\/+$/, '');
-  return `${baseUrl}/api/${normalizedResource}`;
+  const normalizedResource = String(resource).replace(/^\/+|\/+$/g, '');
+  return `${baseUrl}/api/${normalizedResource}/`;
 }
 
 export const apiConfig = {
